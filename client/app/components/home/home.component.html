@@ -1,0 +1,68 @@
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Employee List</h3>
+        <br />
+       
+    </div>
+</div>
+<div class="row">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        
+                        S.No.
+                    </th>
+                    <th>
+                        EmployeeName
+                    </th>
+                    <th>
+                        Designation
+                    </th>
+                    <th>
+                        Project
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr *ngFor="let empData of EmployeeList  ; let i = index; trackBy: employeeId">
+                    <td>
+                        {{i+1}}
+                    </td>
+                    <td>
+                        {{empData.EmployeeName}}
+                    </td>
+                    <td>
+                       {{empData.Designation}}
+                    </td>
+                    <td>
+                       {{empData.Project}}
+                    </td>
+                    <td>
+
+                        <a [routerLink]="['/details/',empData._id]"
+                           class="btn btn-primary">
+                            Detail
+                        </a>
+                        <a [routerLink]="['/edit/',empData._id]"
+                           class="btn btn-success">
+                            Edit
+                        </a>
+                        <a 
+                           class="btn btn-danger" (click)="deleteEmployee(empData._id)">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                
+        </table>
+    </div>
+</div>  
+
